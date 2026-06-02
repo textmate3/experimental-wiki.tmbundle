@@ -12,7 +12,7 @@ def e_url(str)
 end
 
 def e_sh(str)
-  str.to_s.gsub(/(?=[^a-zA-Z0-9_.\/\-\x7F-\xFF])/, '\\')
+  str.to_s.gsub(/(?=[^a-zA-Z0-9_.\/\-\x7F-\xFF])/n, '\\')
 end
 
 def e_sh_js(str)
