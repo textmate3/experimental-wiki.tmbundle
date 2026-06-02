@@ -31,7 +31,7 @@ path = Pathname.new(file).realpath
 dir = path.parent.to_s
 
 tmp = '/tmp/tm_wiki'
-FileUtils.mkdir tmp unless File.exists? tmp
+FileUtils.mkdir tmp unless File.exist? tmp
 page_name = path.basename.to_s.sub(/\..+\z/, '')
 dst_name = tmp + '/' + page_name + '.html'
 
@@ -65,7 +65,7 @@ HTML
 
       line = line.gsub(/\[([^\]]+)\]\[\]/) do |m|
         dest = "#{dir}/#{$1}.mdown"
-        if File.exists? dest
+        if File.exist? dest
           "<a href='#' onClick='visit(\"#{e_sh_js script}\", \"#{e_sh_js dest}\"); return false;'>#{$1}</a>"
         else
           "#{$1} (<a href='txmt://open?url=file://#{e_url dest}'>create</a>)"
